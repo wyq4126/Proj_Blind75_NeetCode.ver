@@ -1,0 +1,19 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> prevMap = new HashMap<>();
+        int diff;
+
+        for (int i = 0; i < nums.length; i++) {
+            diff = target - nums[i];
+            if(prevMap.containsKey(diff)) {
+                // 直接返回，说明存在
+                return new int[] {prevMap.get(target - nums[i]), i};
+            }
+            prevMap.put(nums[i], i);
+        }
+        return null;
+    }
+}
+
+//runtime:1 ms
+//memory:41.3 MB
